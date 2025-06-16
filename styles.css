@@ -68,8 +68,8 @@ main{
       justify-content: center;
 }
 
-html body #map {
-       height: 100%;
+#map {
+       height: 100vw;
        width: 100vw;
     }
 
