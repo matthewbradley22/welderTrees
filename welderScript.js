@@ -54,11 +54,13 @@ var colors = {
     pink: '#ffc0cb',
 };
 
+//Change icon colors with this github https://github.com/pointhi/leaflet-color-markers
 for (var i = 0; i < locations.length; i++) {
     marker = new L.marker([locations[i][1], locations[i][2]])
     .bindPopup(popupContent[i] + 
         ': <img src="TreeFillIn.jpg" height="150px" width="150px"/>')
     .addTo(map);
+
 }
 
 for(var i = 0; i < locations.length; i++){
