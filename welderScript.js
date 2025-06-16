@@ -58,8 +58,7 @@ for (var i = 0; i < locations.length; i++) {
     marker = new L.marker([locations[i][1], locations[i][2]])
     .bindPopup(popupContent[i] + 
         ': <img src="TreeFillIn.jpg" height="150px" width="150px"/>')
-    .addTo(map)
-    .openPopup();
+    .addTo(map);
 }
 
 for(var i = 0; i < locations.length; i++){
