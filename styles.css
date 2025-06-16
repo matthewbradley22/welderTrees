@@ -47,6 +47,9 @@ details[open] summary {
   margin-bottom: 0.5em;
 }
 
+h3{
+      margin:20px;
+}
 @media screen and (max-width: 900px) {
   details {
   width: 50%;
@@ -56,4 +59,11 @@ details[open] summary {
   background: #dae4d4;
   padding: 5px;
 }
+
+main{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+}
+
 }
