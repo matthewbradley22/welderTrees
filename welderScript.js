@@ -1,3 +1,5 @@
+//TODO: Color marker by entrance type, add latitude and longitude on clicks
+
 var welderText = document.getElementById("textInfo");
 var treeList = document.getElementById("TreeInfoList")
 
