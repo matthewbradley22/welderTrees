@@ -70,7 +70,7 @@ for(var i = 0; i < locations.length; i++){
     const summaryText = document.createTextNode(popupContent[i]);
     summary.appendChild(summaryText);
     const detail = document.createElement("details");
-    const detailText = document.createTextNode("This tree's entrance: " + locations[i][3]);
+    const detailText = document.createTextNode("Entrance type: " + locations[i][3]);
     detail.appendChild(detailText);
     detail.appendChild(summary)
     const listItem = document.createElement("li");
