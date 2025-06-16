@@ -13,8 +13,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
-var imageUrl = 'https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Golden_State_Warriors_logo.svg/1280px-Golden_State_Warriors_logo.svg.png';
-
 //var treeIcon = L.icon({
   //  iconUrl: 'treeSymbol.png',
   //  iconSize:     [30, 30], // size of the icon
@@ -23,31 +21,38 @@ var imageUrl = 'https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Golden_Stat
 //});
 
 var locations = [
-  ["60", 28.11105, -97.42103],
-  ["76.2", 28.11099326, -97.42010907],
-  ["301", 28.1114, -97.42122],
-  ["357", 28.1126, -97.4153],
-  ["366", 28.10177, -97.42433],
-  ["381", 28.11473, -97.4177],
-  ["383", 28.11538, -97.41903],
-  ["394", 28.10633, -97.41887],
-  ["404", 28.1021, -97.42485],
-  ["421", 28.1137, -97.41495],
-  ["425", 28.1123, -97.4207],
-  ["427", 28.10892, -97.41455],
-  ["435", 28.10273, -97.42397],
-  ["701", 28.11414645, -97.41589835],
-  ["703", 28.10218265, -97.42255324],
-  ["705", 28.10923173, -97.42393793],
-  ["708",28.11459385, -97.41655697],
-  ["709", 28.11331871, -97.41580119],
-  ["721", 28.11524395, -97.41560055]
+  ["60", 28.11105, -97.42103, 'Tree knot'],
+  ["76.2", 28.11099326, -97.42010907, 'Tree knot with Maze'],
+  ["301", 28.1114, -97.42122, 'Tree knot'],
+  ["357", 28.1126, -97.4153, 'Tree knot'],
+  ["366", 28.10177, -97.42433, 'Tree knot'],
+  ["381", 28.11473, -97.4177, 'Broken off branch'],
+  ["383", 28.11538, -97.41903, 'Broken off branch'],
+  ["394", 28.10633, -97.41887, 'Tree knot with Maze'],
+  ["404", 28.1021, -97.42485, 'Long tree crack'],
+  ["421", 28.1137, -97.41495, 'Tree knot'],
+  ["425", 28.1123, -97.4207, 'Tree knot'],
+  ["427", 28.10892, -97.41455, 'Long tree crack'],
+  ["435", 28.10273, -97.42397, 'Tree knot'],
+  ["701", 28.11414645, -97.41589835, 'Tree knot with Maze'],
+  ["703", 28.10218265, -97.42255324, 'Tree knot'],
+  ["705", 28.10923173, -97.42393793, 'Tree knot'],
+  ["708",28.11459385, -97.41655697, 'Broken off branch'],
+  ["709", 28.11331871, -97.41580119, 'Tree knot'],
+  ["721", 28.11524395, -97.41560055,' Tree knot']
 
 ];
 
 var popupContent = ['60', '76.2', '301', '357', '366', '381', 
     '383','394', '404', '421', '425', '427', '435', '701', '703', '705', '708',
     '709', '721'];
+
+var colors = {
+    orange: '#ffa500',
+    blue: '#0000ff',
+    green: '#008000',
+    pink: '#ffc0cb',
+};
 
 for (var i = 0; i < locations.length; i++) {
     marker = new L.marker([locations[i][1], locations[i][2]])
@@ -57,21 +62,12 @@ for (var i = 0; i < locations.length; i++) {
     .openPopup();
 }
 
-var latPopup = L.popup();
-
-function onMapClick(e) {
-    latPopup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
-
 for(var i = 0; i < locations.length; i++){
     const summary = document.createElement("summary");
     const summaryText = document.createTextNode(popupContent[i]);
     summary.appendChild(summaryText);
     const detail = document.createElement("details");
-    const detailText = document.createTextNode("This is tree " +popupContent[i] );
+    const detailText = document.createTextNode("This tree's entrance: " + locations[i][3]);
     detail.appendChild(detailText);
     detail.appendChild(summary)
     const listItem = document.createElement("li");
