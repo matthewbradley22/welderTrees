@@ -1,5 +1,4 @@
 //TODO: Add other relevant info? Add secondary photos for some trees
-//Click images for full screen
 
 var welderText = document.getElementById("textInfo");
 var treeList = document.getElementById("TreeInfoList")
@@ -15,13 +14,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
-
-//var treeIcon = L.icon({
-  //  iconUrl: 'treeSymbol.png',
-  //  iconSize:     [30, 30], // size of the icon
-  //  iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-   // popupAnchor:  [10, 0] // point from which the popup should open relative to the iconAnchor
-//});
 
 //Define colored markers for cavity types
 var redIcon = L.icon({
