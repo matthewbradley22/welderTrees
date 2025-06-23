@@ -51,6 +51,19 @@ details[open] summary {
 h3{
       margin:20px;
 }
+
+#ContactInfo{
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 75px;
+      background-color: #c1dab3;
+}
+
+img{
+      cursor: pointer;
+}
+
 @media screen and (max-width: 900px) {
   details {
       width: 50%;

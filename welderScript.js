@@ -1,4 +1,5 @@
-//TODO: Color marker by entrance type
+//TODO: Add other relevant info? Add secondary photos for some trees
+//Click images for full screen
 
 var welderText = document.getElementById("textInfo");
 var treeList = document.getElementById("TreeInfoList")
@@ -78,7 +79,7 @@ var colors = {
 for (var i = 0; i < locations.length; i++) {
     marker = new L.marker([locations[i][1], locations[i][2]], {icon: locations[i][5]})
     .bindPopup('<strong>' + locations[i][0] + '</strong> <br>' +
-        '<img src="images/' + locations[i][4] + '"' +'height="150px" width="150px"/>' +
+        '<img src="images/' + locations[i][4] + '"' +' onclick="this.requestFullscreen()" height="150px" width="150px"/>' +
         '<br> lat/long: ' + locations[i][1] + ' ' + locations[i][2])
     .addTo(map);
 
