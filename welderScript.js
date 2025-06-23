@@ -1,4 +1,5 @@
 //TODO: Add other relevant info? Add secondary photos for some trees
+//Crop photos square to stop distortion, add tree cavity height
 
 var welderText = document.getElementById("textInfo");
 var treeList = document.getElementById("TreeInfoList")
@@ -55,7 +56,7 @@ var locations = [
   ["703", 28.10218265, -97.42255324, 'Tree knot', '703.jpg', redIcon],
   ["705", 28.10923173, -97.42393793, 'Tree knot', '705.jpg', redIcon],
   ["708",28.11459385, -97.41655697, 'Broken off branch', '708-2.jpg', greenIcon],
-  ["709", 28.11331871, -97.41580119, 'Tree knot', '709-3.jpg', redIcon],
+  ["709", 28.11331871, -97.41580119, 'Long tree crack', '709-3.jpg', blueIcon],
   ["721", 28.11524395, -97.41560055,' Tree knot', '721-2.jpg', redIcon]
 
 ];
