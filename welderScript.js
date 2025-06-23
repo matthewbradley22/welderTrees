@@ -1,4 +1,4 @@
-//TODO: Color marker by entrance type, add latitude and longitude on clicks
+//TODO: Color marker by entrance type
 
 var welderText = document.getElementById("textInfo");
 var treeList = document.getElementById("TreeInfoList")
@@ -22,6 +22,10 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
    // popupAnchor:  [10, 0] // point from which the popup should open relative to the iconAnchor
 //});
 
+//Define colored markers for cavity types
+
+
+//Maybe compress images to load faster
 var locations = [
   ["60", 28.11105, -97.42103, 'Tree knot', '60.jpg'],
   ["76.2", 28.11099326, -97.42010907, 'Tree knot with Maze', '76.2-2.jpg'],
@@ -30,7 +34,7 @@ var locations = [
   ["366", 28.10177, -97.42433, 'Tree knot', '366.jpg'],
   ["381", 28.11473, -97.4177, 'Broken off branch', '381-3.jpg'],
   ["383", 28.11538, -97.41903, 'Broken off branch', '383-3.jpg'],
-  ["394", 28.10633, -97.41887, 'Tree knot with Maze', '394.jpg'],
+  ["394", 28.10633, -97.41887, 'Tree knot with Maze', '394.JPG'],
   ["404", 28.1021, -97.42485, 'Long tree crack', '404.jpg'],
   ["421", 28.1137, -97.41495, 'Tree knot', '421.jpg'],
   ["425", 28.1123, -97.4207, 'Tree knot', '425-2.jpg'],
@@ -45,10 +49,6 @@ var locations = [
 
 ];
 
-var popupContent = ['60', '76.2', '301', '357', '366', '381', 
-    '383','394', '404', '421', '425', '427', '435', '701', '703', '705', '708',
-    '709', '721'];
-
 var colors = {
     orange: '#ffa500',
     blue: '#0000ff',
@@ -59,15 +59,16 @@ var colors = {
 //Change icon colors with this github https://github.com/pointhi/leaflet-color-markers
 for (var i = 0; i < locations.length; i++) {
     marker = new L.marker([locations[i][1], locations[i][2]])
-    .bindPopup(locations[i][0] + 
-        ': <img src="images/' + locations[i][4] + '"' +'height="150px" width="150px"/>')
+    .bindPopup('<strong>' + locations[i][0] + '</strong> <br>' +
+        '<img src="images/' + locations[i][4] + '"' +'height="150px" width="150px"/>' +
+        '<br> lat/long: ' + locations[i][1] + ' ' + locations[i][2])
     .addTo(map);
 
 }
 
 for(var i = 0; i < locations.length; i++){
     const summary = document.createElement("summary");
-    const summaryText = document.createTextNode(popupContent[i]);
+    const summaryText = document.createTextNode(locations[i][0]);
     summary.appendChild(summaryText);
     const detail = document.createElement("details");
     const detailText = document.createTextNode("Entrance type: " + locations[i][3]);
