@@ -2,7 +2,7 @@
 //Crop photos square to stop distortion, add tree cavity height
 
 var welderText = document.getElementById("textInfo");
-var treeList = document.getElementById("TreeInfoList")
+var treeInfo = document.getElementById("infoBox");
 
 document.addEventListener("DOMContentLoaded", function(event) { 
  var map =  L.map('map', {
@@ -19,22 +19,22 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 //Define colored markers for cavity types
 var redIcon = L.icon({
     iconUrl: 'images/redSymbol.png',
-    iconSize:     [20, 40]
+    iconSize:     [20, 32]
 })
 
 var blueIcon = L.icon({
     iconUrl: 'images/blueSymbol.png',
-    iconSize:     [20, 40]
+    iconSize:     [20, 32]
 })
 
 var greenIcon = L.icon({
     iconUrl: 'images/greenSymbol.png',
-    iconSize:     [20, 40]
+    iconSize:     [20, 32]
 })
 
 var orangeIcon = L.icon({
     iconUrl: 'images/orangeSymbol.png',
-    iconSize:     [20, 40]
+    iconSize:     [20, 32]
 })
 
 //Maybe compress images to load faster
@@ -70,24 +70,20 @@ var colors = {
 
 //Change icon colors with this github https://github.com/pointhi/leaflet-color-markers
 for (var i = 0; i < locations.length; i++) {
-    marker = new L.marker([locations[i][1], locations[i][2]], {icon: locations[i][5]})
-    .bindPopup('<strong>' + locations[i][0] + '</strong> <br>' +
-        '<img src="images/' + locations[i][4] + '"' +' onclick="this.requestFullscreen()" height="150px" width="150px"/>' +
-        '<br> lat/long: ' + locations[i][1] + ' ' + locations[i][2])
+    marker = new L.marker([locations[i][1], locations[i][2]], {
+        icon: locations[i][5],
+        id: locations[i][0],
+        cav_type: locations[i][3],
+        photo: locations[i][4]}).on('click', showTreeInfo)
     .addTo(map);
 
 }
-
-for(var i = 0; i < locations.length; i++){
-    const summary = document.createElement("summary");
-    const summaryText = document.createTextNode(locations[i][0]);
-    summary.appendChild(summaryText);
-    const detail = document.createElement("details");
-    const detailText = document.createTextNode("Entrance type: " + locations[i][3]);
-    detail.appendChild(detailText);
-    detail.appendChild(summary)
-    const listItem = document.createElement("li");
-    listItem.appendChild(detail)
-    treeList.appendChild(listItem)
-}
 })
+
+function showTreeInfo(e){
+    var opts = e.target.options;
+    treeInfo.innerHTML = 
+    "<strong> Tree ID: </strong>"  + opts.id  + "<br/>" + "<br/>"+
+    "<strong> Cavity type: </strong>" + opts.cav_type + "<br/>" + "<br/>" +
+    '<img src="images/' + opts.photo + '"' +' onclick="this.requestFullscreen()" height="auto" width="100%"/>' 
+}
