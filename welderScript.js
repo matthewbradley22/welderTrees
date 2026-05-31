@@ -2,7 +2,7 @@
 //Crop photos square to stop distortion, add tree cavity height
 
 var welderText = document.getElementById("textInfo");
-var treeInfo = document.getElementById("infoBox");
+var treeInfo = document.getElementById("infoBox"); 
 
 document.addEventListener("DOMContentLoaded", function(event) { 
  var map =  L.map('map', {
