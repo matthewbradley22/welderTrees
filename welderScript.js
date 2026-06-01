@@ -91,5 +91,7 @@ function showTreeInfo(e){
     "<strong> Cavity type: </strong>" + opts.cav_type + "<br/>" + "<br/>" +
     "<strong> Front aggression score: </strong>" + opts.front_agg + "<br/>" + "<br/>" +
     "<strong> Main entrance height: </strong>" + opts.main_height + "(units?) <br/>" + "<br/>" +
-    '<img src="images/' + opts.photo + '"' +' onclick="this.requestFullscreen()" height="auto" width="100%"/>' 
+    '<img src="images/' + opts.photo + '"' +' onclick="this.requestFullscreen()" height="auto" width="100%"/> <br/>' +
+    '(Click image for full screen)'
+
 }
