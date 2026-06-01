@@ -97,4 +97,5 @@ main{
       display:flex;
       flex-direction: column;
       margin-right: 2vw;
+      margin-left: 1vw;
 }
