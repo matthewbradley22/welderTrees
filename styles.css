@@ -92,10 +92,14 @@ main{
       margin-left: 1vw;
       width: 30%;
 }
- 
+
 #color_select_box{
       display:flex;
       flex-direction: column;
       margin-right: 2vw;
       margin-left: 1vw;
+}
+
+.tree_select_butt{
+      margin: 1vw;
 }
