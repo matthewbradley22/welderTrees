@@ -28,8 +28,6 @@ var treeInfo = document.getElementById("infoBox");
   //Order of lists: id, lat, long, cavity type, associated image, icon type, front knock agg score
   //main entrance height, nosema levels, num visible entrances, avg entrance area, viruses detected 2021,
   //2021 mitotype, 2022 mitotype, number visible entrances
-  //Add long crack with maze entrance type
-  //Add 721.2
   //add overall pic for 721 with square for colonies
 var locations = [
     [
@@ -492,6 +490,13 @@ function showTreeInfo(e) {
     //Add appropriate html for trees
     button_721.addEventListener("click", showTreeInfoMultipleCav);
     button_721_2.addEventListener("click", showTreeInfoMultipleCav);
+
+    var full_tree_721 = document.createElement("img");
+    full_tree_721.setAttribute("height", "auto");
+    full_tree_721.setAttribute("width", "100%");
+    full_tree_721.setAttribute("onclick", "requestFullscreen()");
+    full_tree_721.src = "./images/721_full_tree.jpg";
+    treeInfo.appendChild(full_tree_721);
   }
 }
 
