@@ -137,7 +137,7 @@ var locations = [
       28.11538,
       -97.41903,
       "Tree knot (old), broken off branch (new)",
-      "383-3.jpg",
+      "383-4.jpg",
       greenIcon,
       "71",
       "211.5",
